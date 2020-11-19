@@ -1,0 +1,36 @@
+h2 {
+    color: white;
+    padding-left: 20px;
+    
+}
+
+#banner {
+    background-color: black;
+    padding-top: 5px;
+    padding-left: 5px;
+    color: white;
+}
+
+#container-tabela {
+    padding: 30px;
+}
+
+h11 {
+    color:red;
+}
+
+#logo {
+        width:50%;
+        height:50%;
+}
+
+.panel-heading{
+    font-size:150%;
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
