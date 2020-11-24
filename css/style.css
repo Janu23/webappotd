@@ -15,10 +15,6 @@ h2 {
     padding: 30px;
 }
 
-h11 {
-    color:red;
-}
-
 #logo {
         width:50%;
         height:50%;
@@ -33,4 +29,16 @@ h11 {
 }
 .btn.active span.glyphicon {				
 	opacity: 1;				
+}
+
+h11 {
+    color:red;
+}
+
+#form-container {
+    padding: 25px;
+}
+
+#linha {
+    padding-bottom: 20px;
 }

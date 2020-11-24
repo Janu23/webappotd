@@ -4,14 +4,7 @@ ob_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8"/>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <title></title>
+        <meta charset="utf-8"/>    
     </head>
     <body>
 <?php
@@ -151,8 +144,6 @@ ob_start();
     header ("Content-Disposition: attachment; filename=\"{$arquivo}\"" );
     header ("Content-Description: PHP Generated Data" );
     // Envia o conteúdo do arquivo
-                                            
-
     echo $html;
     exit; 
     ob_end_flush();      

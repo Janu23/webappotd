@@ -1,16 +1,10 @@
 <?php
-ob_start();
+ob_start();//solução para o problema de cabeçalho export excel não carregado 
 ?>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8"/>
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <title></title>
     </head>
     <body>
 <?php

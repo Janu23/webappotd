@@ -5,8 +5,8 @@
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
 
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <link href="css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="js/bootstrap.min.js"></script>
         <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <title></title>
     </head>
@@ -22,7 +22,7 @@
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text">Permite que o usuário visualize a planilha de drenagem superficial completa e edite as fichas contidas nela.</p>
-                <a href="index_ds.php" class="btn btn-light btn-block">Acessar</a>
+                <a href="trecho.php" class="btn btn-light btn-block">Acessar</a>
             </div>
             </div>
         </div>
@@ -33,7 +33,7 @@
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo fichas editadas e não editadas.</p>
-                <a href="exportar_planilha_ds.php" class="btn btn-light btn-block">Acessar</a>
+                <a href="exportar_planilha_ds.php" class="btn btn-light btn-block">Exportar</a>
             </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo apenas fichas editadas.</p>
-                <a href="exportar_planilha_ds_edit.php" class="btn btn-light btn-block">Acessar</a>
+                <a href="exportar_planilha_ds_edit.php" class="btn btn-light btn-block">Exportar</a>
             </div>
             </div>
         </div>

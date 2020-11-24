@@ -1,5 +1,12 @@
 <?php 
+    session_start();
     include('dbconnect.php');
+
+    if(isset($_POST['inicioTrecho']) && isset($_POST['inicioTrecho'])){
+        $_SESSION['inicioTrecho'] = $_POST['inicioTrecho'];
+        $_SESSION['finalTrecho'] = $_POST['finalTrecho'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,10 +16,7 @@
         <link href="DataTables-1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet">
         <link href="DataTables-1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
-
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        
+        <link href="css/bootstrap-3.3.0.min.css" rel="stylesheet" id="bootstrap-css">        
         
         <title></title>
     </head>
@@ -24,6 +28,7 @@
     <nav aria-label="breadcrumb bg-white">
     <ol class="breadcrumb bg-white">
          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+         <li class="breadcrumb-item"><a href="trecho.php">Definir trecho - Planilha Drenagem Superficial</a></li>
         <li class="breadcrumb-item active" aria-current="page">Planilha Drenagem Superficial</li>
     </ol>
     </nav>
@@ -45,7 +50,12 @@
                 </thead>
                 <tbody>
                     <?php 
-                        $sql = "SELECT * FROM drenagem_superficial";
+                        if ($_POST['inicioTrecho']=="" && $_POST['finalTrecho']){
+                            $sql = "SELECT * FROM drenagem_superficial";
+                        }else {
+                            $sql = "SELECT * FROM drenagem_superficial WHERE km LIKE '".$_SESSION['inicioTrecho']."%' OR km LIKE '".$_SESSION['finalTrecho']."%'";
+
+                        }
                         $resultado = mysqli_query($link, $sql);
                     
                         if(mysqli_num_rows($resultado) > 0):
@@ -53,7 +63,7 @@
                             while($dados = mysqli_fetch_array($resultado)):
                     ?>
                     <tr>
-                        <td><?php echo ($dados['edit']==1) ? '<span class="glyphicon glyphicon-ok text-success"></span>': $dados['edit']; ?></td>
+                        <td><?php echo ($dados['edit']==1) ? 'OK <span class="glyphicon glyphicon-ok text-success"></span>': ''; ?></td>
                         <td><?php echo $dados['identificacao2020_2']; ?></td>
                         <td><?php echo $dados['km']; ?></td>
                         <td><?php echo $dados['kmFinal']; ?></td>
@@ -73,6 +83,7 @@
         
         </div>
   <script src="jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap-3.3.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="DataTables-1.10.22/js/jquery.dataTables.min.js"></script>
 
