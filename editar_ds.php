@@ -3,8 +3,8 @@
     include('dbconnect.php');
 
     $codAuto = $_POST['codAuto'];
-    $data = $_POST['data'];
-        
+    $data = date("d/m/Y");
+      
     //checkbox e input de extensão sobre diagnóstico já adequando o formato float
     $reparar = $_POST['reparar'] ? "Sim" : "Não";
     $extensaoReparo = floatval(str_replace(',', '.', $_POST['extensaoReparo']));
@@ -39,8 +39,8 @@
     $destination="";
     $destination2="";
 
-    error_reporting(-1); // ALL messages error
-    ini_set('display_errors', 'On');//Exibe mensagens de erro
+    //error_reporting(-1); // ALL messages error
+    //ini_set('display_errors', 'On');//Exibe mensagens de erro
 
     //Criar diretórios com a data do dia
     $diretorio = "fotos_ficha/".str_replace('/', '-', date("d/m/Y"));

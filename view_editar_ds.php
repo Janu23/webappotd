@@ -92,9 +92,9 @@
                 <div class="col-sm-6">
                 <input id="identificacao" name="identificacao"  class="form-control input-sm" required="" type="text" value="<?php echo $dados['identificacao2020_2'];?>" readonly><br>
                 </div>
-                <label class="col-sm-2 control-label" for="data">Data Inspeção<h11>*</h11></label>  
+                <label class="col-sm-2 control-label" for="data">Data Inspeção</label>  
                 <div class="col-sm-2">
-                    <input id="data" name="data" placeholder="" class="form-control input-sm" required="required" type="text" value="<?php echo $dados['data'];?>"><br>
+                    <input id="data" name="data" placeholder="" class="form-control input-sm" required="required" readonly type="text" value="<?php echo $dados['data'];?>"><br>
                 </div>
             </div>
             <div class="form-group row">

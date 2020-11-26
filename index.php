@@ -17,7 +17,7 @@
     <span class="navbar-brand mb-0 h1">Sistema Simplificado de Monitoração</span>
     </nav>
     <div class="form-group">
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Planilha Drenagem Superficial</div>
             <div class="card-body">
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Exportar Planilha Drenagem Superficial</div>
             <div class="card-body">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="col-sm-2">
+        <div class="col-sm-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Exportar Planilha Drenagem Superfical Editada</div>
             <div class="card-body">

@@ -7,6 +7,11 @@
         $_SESSION['finalTrecho'] = $_POST['finalTrecho'];
     }
 
+    //consulta para métricas de desempenho do operador - num dispositivos por dia
+    $data = date("d/m/Y");
+    $consulta = "SELECT codAuto, data FROM drenagem_superficial WHERE edit = 1 AND data = '$data'";
+    $retorno = mysqli_query($link, $consulta);
+    $linhas = mysqli_num_rows($retorno);//dispositivos inspecionados
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,6 +38,9 @@
     </ol>
     </nav>
         <div id="container-tabela">
+        <div class="alert alert-primary col-sm-2" id="msg-desempenho" role="alert">
+         <?php echo "Acumulado do dia: ".$linhas; ?>
+    </div>
             <table class="table table-responsive hover" id="tabela_ds">
                 <thead class="thead-dark">
                     <tr>
