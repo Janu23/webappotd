@@ -39,6 +39,16 @@
     $destination="";
     $destination2="";
 
+    error_reporting(-1); // ALL messages error
+    ini_set('display_errors', 'On');//Exibe mensagens de erro
+
+    //Criar diretórios com a data do dia
+    $diretorio = "fotos_ficha/".str_replace('/', '-', date("d/m/Y"));
+    if (!file_exists($diretorio)){
+        mkdir($diretorio, 0777);
+
+    }
+
     //echo "Foto1: ".$_POST['foto1dir']." <br>";
     //echo "Foto2: ".$_POST['foto2dir']." <br>";
     //print_r($_FILES);
@@ -54,7 +64,7 @@
         $parts = explode(".",$currentName);
         $extension = array_pop($parts);
         $newName = $identificacao;
-        $destination = "fotos_ficha/{$newName}_foto1.{$extension}";
+        $destination = "{$diretorio}/{$newName}_foto1.{$extension}";
     
         //echo ( "Arquivo:".$_FILES [ 'foto1_ficha'][ 'name' ]."\ n");
         //echo ( gettype ( $_FILES [ 'foto1_ficha' ] [ 'name' ]));
@@ -75,7 +85,7 @@
         $currentName2 = $_FILES ['foto2_ficha']['name']; 
         $parts2 = explode(".",$currentName2);
         $extension2 = array_pop($parts2);
-        $destination2 = "fotos_ficha/{$newName}_foto2.{$extension2}";
+        $destination2 = "{$diretorio}/{$newName}_foto2.{$extension2}";
 
         if ( move_uploaded_file ( $_FILES ['foto2_ficha']['tmp_name'] , $destination2)) {
             // echo  "Arquivo 2 enviado com sucesso! \ n" ;

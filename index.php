@@ -11,12 +11,13 @@
         <title></title>
     </head>
     <body>
+  <div class="container">
    <!-- As a heading -->
     <nav class="navbar bg-dark navbar-dark">
     <span class="navbar-brand mb-0 h1">Sistema Simplificado de Monitoração</span>
     </nav>
     <div class="form-group">
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Planilha Drenagem Superficial</div>
             <div class="card-body">
@@ -27,18 +28,18 @@
             </div>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Exportar Planilha Drenagem Superficial Completa</div>
+            <div class="card-header">Exportar Planilha Drenagem Superficial</div>
             <div class="card-body">
                 <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo fichas editadas e não editadas.</p>
-                <a href="exportar_planilha_ds.php" class="btn btn-light btn-block">Exportar</a>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo fichas editadas e não editadas definindo os trechos como critério de filtragem.</p>
+                <a href="trecho_exp_planilha.php" class="btn btn-light btn-block">Exportar</a>
             </div>
             </div>
         </div>
 
-        <div class="col-md-2">
+        <div class="col-sm-2">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Exportar Planilha Drenagem Superfical Editada</div>
             <div class="card-body">
@@ -49,7 +50,7 @@
             </div>
         </div>
     </div>
-
+</div>
     <script src="js/app.js"></script>
     <script src="jQuery-3.3.1/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>   

@@ -1,5 +1,11 @@
 <?php
 ob_start();//solução para o problema de cabeçalho export excel não carregado 
+include('dbconnect.php');
+
+if(isset($_POST['inicioTrecho']) && isset($_POST['inicioTrecho'])){
+    $_SESSION['inicioTrecho'] = $_POST['inicioTrecho'];
+    $_SESSION['finalTrecho'] = $_POST['finalTrecho'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +14,7 @@ ob_start();//solução para o problema de cabeçalho export excel não carregado
     </head>
     <body>
 <?php
-    include('dbconnect.php');
+   
     //Define o nome do arquivo a ser exportado
     
     $arquivo = "drenagem_superficial.xls";
@@ -70,7 +76,12 @@ ob_start();//solução para o problema de cabeçalho export excel não carregado
     $html .='<th>edit</th>';     
     $html .='</tr>';
 
-    $sql = "SELECT * FROM drenagem_superficial";
+    if ($_POST['inicioTrecho']=="" && $_POST['finalTrecho']){
+        $sql = "SELECT * FROM drenagem_superficial";
+    }else {
+        $sql = "SELECT * FROM drenagem_superficial WHERE km LIKE '".$_SESSION['inicioTrecho']."%' OR km LIKE '".$_SESSION['finalTrecho']."%'";
+
+    }
     $consulta = mysqli_query($link, $sql);
 
     if(mysqli_num_rows($consulta)>0){

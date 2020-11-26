@@ -66,8 +66,13 @@ CREATE TABLE drenagem_profunda(
 	lote VARCHAR(15),
 	foto1Ficha VARCHAR(50),
 	foto2Ficha VARCHAR(50),
-	foto1Nova VARCHAR(50),
-	foto2Nova VARCHAR(50),
+	foto1_fichas_nova VARCHAR(50),
+	foto2_fichas_nova VARCHAR(50),
+	foto3_fichas_nova VARCHAR(50),
+	foto4_fichas_nova VARCHAR(50),
+	observacaoAlteracao VARCHAR(150),
+	sync TINYINT(1),
+	edit TINYINT(1), 
 	PRIMARY KEY(codAuto)
 );
 
