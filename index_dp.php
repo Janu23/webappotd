@@ -79,7 +79,16 @@
                             while($dados = mysqli_fetch_array($resultado)):
                     ?>
                     <tr>
-                        <td><?php echo ($dados['edit']==1) ? 'OK <span class="glyphicon glyphicon-ok text-success"></span>': ''; ?></td>
+                        <?php
+                            if ($dados['edit']==1 && $dados['editJ']==1 && $dados['editM']==1){
+                                $ok = '<span><img src="img/ok.png" width="20px"/></span>';
+                            }else if ($dados['edit']==0){
+                                $ok = '';
+                            }else {
+                                $ok = '<span><img src="img/exc.png" width="20px"/></span>';
+                            }
+                        ?>
+                        <td><?php echo $ok; ?></td>
                         <td><?php echo $dados['identificacao']; ?></td>
                         <td><?php echo $dados['kmInicial']; ?></td>
                         <td><?php echo $dados['kmFinal']; ?></td>

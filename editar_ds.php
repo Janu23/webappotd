@@ -51,7 +51,7 @@
     //ini_set('display_errors', 'On');//Exibe mensagens de erro
 
     //Criar diretórios com a data do dia
-    $diretorio = "fotos_ficha/".str_replace('/', '-', date("d/m/Y"));
+    $diretorio = "fotos_ficha/drenagem_superficial/".str_replace('/', '-', date("d/m/Y"));
     if (!file_exists($diretorio)){
         mkdir($diretorio, 0777);
     }

@@ -16,7 +16,7 @@
     <nav class="navbar bg-dark navbar-dark">
     <span class="navbar-brand mb-0 h1">Sistema Simplificado de Monitoração</span>
     </nav>
-    <div class="form-group">
+    <div class="form-group row">
         <div class="col-sm-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Planilha Drenagem Superficial</div>
@@ -30,22 +30,11 @@
 
         <div class="col-sm-4">
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Planilha Drenagem Profunda</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário visualize a planilha de drenagem profunda completa e edite as fichas contidas nela.</p>
-                <a href="trecho_dp.php" class="btn btn-light btn-block">Acessar</a>
-            </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
             <div class="card-header">Exportar Planilha Drenagem Superficial</div>
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo fichas editadas e não editadas definindo os trechos como critério de filtragem.</p>
-                <a href="trecho_exp_planilha.php" class="btn btn-light btn-block">Exportar</a>
+                <a href="trecho_exp_planilha_ds.php" class="btn btn-light btn-block">Exportar</a>
             </div>
             </div>
         </div>
@@ -57,6 +46,41 @@
                 <h5 class="card-title"></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo apenas fichas editadas.</p>
                 <a href="exportar_planilha_ds_edit.php" class="btn btn-light btn-block">Exportar</a>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Planilha Drenagem Profunda</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Permite que o usuário visualize a planilha de drenagem profunda completa e edite as fichas contidas nela.</p>
+                <a href="trecho_dp.php" class="btn btn-light btn-block">Acessar</a>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="col-sm-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Exportar Planilha Drenagem Profunda</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls contendo fichas editadas e não editadas definindo os trechos como critério de filtragem.</p>
+                <a href="trecho_exp_planilha_dp.php" class="btn btn-light btn-block">Exportar</a>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header">Exportar Planilha Drenagem Profunda Editada</div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls contendo apenas fichas editadas.</p>
+                <a href="exportar_planilha_dp_edit.php" class="btn btn-light btn-block">Exportar</a>
             </div>
             </div>
         </div>

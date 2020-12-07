@@ -13,16 +13,16 @@ CREATE TABLE drenagem_profunda(
 	kmFinal VARCHAR(15),
 	tipoBueiro VARCHAR(15),
 	forma VARCHAR(15),
-	rodovia VARCHAR(9),
+	rodovia VARCHAR(10),
 	dimensoesM VARCHAR(15),
-	ladoM VARCHAR(6),
+	ladoM VARCHAR(15),
 	dispositivoEntradaM  VARCHAR(30),
 	materialM VARCHAR(15),
 	EstadoConservacaoM VARCHAR(15),
 	latitudeM VARCHAR(30),
 	longitudeM VARCHAR(30),
 	dimensoesJ VARCHAR(15),
-	ladoJ VARCHAR(6),
+	ladoJ VARCHAR(15),
 	estruturaSaidaJ  VARCHAR(30),
 	materialJ VARCHAR(15),
 	EstadoConservacaoJ VARCHAR(15),
@@ -57,8 +57,10 @@ CREATE TABLE drenagem_profunda(
 	observacaoJusante VARCHAR(150),
 	sync TINYINT(1),
 	edit TINYINT(1), 
+	editM TINYINT(1), 
+	editJ TINYINT(1), 
 	PRIMARY KEY(codAuto)
-);
+);--DEve gerar um novo csv com as coluns editM e editJ
 
 --Tabela de fichas de drenagem superficial(Cada linha corresponde a uma ficha)
 CREATE TABLE drenagem_superficial(

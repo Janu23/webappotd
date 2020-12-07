@@ -32,40 +32,49 @@
     $observacaoMontante= mysqli_real_escape_string($link,$_POST['observacaoMontante']);
     $observacaoJusante= mysqli_real_escape_string($link,$_POST['observacaoJusante']);
 
-    $edit = 1;
+    $edit = 1;//Confirma a edicão da ficha sem as fotos
+    $editM = $_POST['editM'];
+    $editJ = $_POST['editJ'];
 
     $identificacao = $_POST['identificacao'];
 
-    $destination="";
-    $destination2="";
-    $destination3="";
-    $destination4="";
+    $destination= $_POST['foto1Mdir'];
+    $destination2= $_POST['foto2Mdir'];
+    $destination3= $_POST['foto1Jdir'];
+    $destination4= $_POST['foto2Jdir'];
 
     //error_reporting(-1); // ALL messages error
     //ini_set('display_errors', 'On');//Exibe mensagens de erro
 
     //Criar diretórios com a data do dia
-    $diretorio = "fotos_ficha/drenagem_profunda".str_replace('/', '-', date("d/m/Y"));
+    $diretorio = "fotos_ficha/drenagem_profunda/".str_replace('/', '-', date("d/m/Y"));
     if (!file_exists($diretorio)){
         mkdir($diretorio, 0777);
     }
 
-    //echo "Foto1: ".$_POST['foto1dir']." <br>";
-    //echo "Foto2: ".$_POST['foto2dir']." <br>";
-    //print_r($_FILES);
+    /*echo "Foto1: ".$_POST['foto1Mdir']." <br>";
+    echo "Foto2: ".$_POST['foto2Mdir']." <br>";
+    print_r($_FILES);
+
+
+    echo "<br> Foto1: ".$_POST['foto1Jdir']." <br>";
+    echo "Foto2: ".$_POST['foto2Jdir']." <br>";
+    print_r($_FILES);*/
+
    //Processo de renomeação e armazenamento no diretório /fotos_ficha   
    //Foto1
     if (isset($_FILES ['foto1M']) && !empty($_FILES["foto1M"]["name"])){  
         //Se tiver alguma foto salva ela será deletada
-        if (!empty($_POST['foto1Mdir'])){
-            unlink($_POST['foto1Mdir']);
-        }
+
         
         $currentName = $_FILES ['foto1M']['name']; 
         $parts = explode(".",$currentName);
         $extension = array_pop($parts);
         $newName = $identificacao;
         $destination = "{$diretorio}/{$newName}_foto1M.{$extension}";
+
+        $editM = 1;//Confirma edicao do montante
+        //echo "<br>Foto1 Montante <br>";
     
         //echo ( "Arquivo:".$_FILES [ 'foto1_ficha'][ 'name' ]."\ n");
         //echo ( gettype ( $_FILES [ 'foto1_ficha' ] [ 'name' ]));
@@ -80,14 +89,15 @@
         //Foto2
     if (isset($_FILES ['foto2M']) && !empty($_FILES["foto2M"]["name"])){
          //Se tiver alguma foto salva ela será deletada
-        if (!empty($_POST['foto2Mdir'])){
-            unlink($_POST['foto2Mdir']);
-        }
+
         $currentName2 = $_FILES ['foto2M']['name']; 
         $parts2 = explode(".",$currentName2);
         $extension2 = array_pop($parts2);
+        $newName = $identificacao;
         $destination2 = "{$diretorio}/{$newName}_foto2M.{$extension2}";
 
+        $editM = 1; //Confirma edicao do montante
+        //echo "<br>Foto2 Montante <br>";
         if ( move_uploaded_file ( $_FILES ['foto2M']['tmp_name'] , $destination2)) {
             // echo  "Arquivo 2 enviado com sucesso! \ n" ;
         } 
@@ -99,14 +109,15 @@
     //Foto3
     if (isset($_FILES ['foto1J']) && !empty($_FILES["foto1J"]["name"])){
         //Se tiver alguma foto salva ela será deletada
-        if (!empty($_POST['foto1Jdir'])){
-            unlink($_POST['foto1Jdir']);
-        }
+
         $currentName3 = $_FILES ['foto1J']['name']; 
         $parts3 = explode(".",$currentName3);
         $extension3 = array_pop($parts3);
+        $newName = $identificacao;
         $destination3 = "{$diretorio}/{$newName}_foto1J.{$extension3}";
 
+        $editJ = 1; //Confirma edicao do montante
+        //echo "<br>Foto1 Jusante <br>";
         if ( move_uploaded_file ( $_FILES ['foto1J']['tmp_name'] , $destination3)) {
             // echo  "Arquivo 3 enviado com sucesso! \ n" ;
         } 
@@ -118,14 +129,15 @@
     //Foto4
     if (isset($_FILES ['foto2J']) && !empty($_FILES["foto2J"]["name"])){
         //Se tiver alguma foto salva ela será deletada
-        if (!empty($_POST['foto2Jdir'])){
-            unlink($_POST['foto2Jdir']);
-        }
+
         $currentName4 = $_FILES ['foto2J']['name']; 
         $parts4 = explode(".",$currentName4);
         $extension4 = array_pop($parts4);
+        $newName = $identificacao;
         $destination4 = "{$diretorio}/{$newName}_foto2J.{$extension4}";
 
+        $editJ = 1; //Confirma edicao do montante
+        //echo "<br>Foto2 Jusante <br>";
         if ( move_uploaded_file ( $_FILES ['foto2J']['tmp_name'] , $destination4)) {
             // echo  "Arquivo 4 enviado com sucesso! \ n" ;
         } 
@@ -134,7 +146,7 @@
         }
     }
 
-    $sql = "UPDATE drenagem_profunda SET data = '$data', assoreadoM = '$assoreadoM', afogadoM = '$afogadoM', limpezaM = '$limpezaM', testaAlaDanificadaM = '$testaAlaDanificadaM', caixaDanificadaM = '$caixaDanificadaM', erosaoM = '$erosaoM', tubulacaoDanificadaM = '$tubulacaoDanificadaM', fissuraTrincaM = '$fissuraTrincaM',  tampaDanificadaInexM = '$tampaDanificadaInexM', okM = '$okM', assoreadoJ = '$assoreadoJ', afogadoJ = '$afogadoJ', limpezaJ = '$limpezaJ', testaAlaDanificadaJ = '$testaAlaDanificadaJ', caixaDanificadaJ = '$caixaDanificadaJ', erosaoJ = '$erosaoJ', tubulacaoDanificadaJ = '$tubulacaoDanificadaJ', fissuraTrincaJ = '$fissuraTrincaJ',  tampaDanificadaInexJ = '$tampaDanificadaInexJ', okJ = '$okJ', observacaoMontante = '$observacaoMontante', observacaoJusante = '$observacaoJusante', edit = '$edit', foto1M = '$destination', foto2M = '$destination2', foto1J = '$destination3', foto2J = '$destination4' WHERE codAuto = '$codAuto'";
+    $sql = "UPDATE drenagem_profunda SET data = '$data', assoreadoM = '$assoreadoM', afogadoM = '$afogadoM', limpezaM = '$limpezaM', testaAlaDanificadaM = '$testaAlaDanificadaM', caixaDanificadaM = '$caixaDanificadaM', erosaoM = '$erosaoM', tubulacaoDanificadaM = '$tubulacaoDanificadaM', fissuraTrincaM = '$fissuraTrincaM',  tampaDanificadaInexM = '$tampaDanificadaInexM', okM = '$okM', assoreadoJ = '$assoreadoJ', afogadoJ = '$afogadoJ', limpezaJ = '$limpezaJ', testaAlaDanificadaJ = '$testaAlaDanificadaJ', caixaDanificadaJ = '$caixaDanificadaJ', erosaoJ = '$erosaoJ', tubulacaoDanificadaJ = '$tubulacaoDanificadaJ', fissuraTrincaJ = '$fissuraTrincaJ',  tampaDanificadaInexJ = '$tampaDanificadaInexJ', okJ = '$okJ', observacaoMontante = '$observacaoMontante', observacaoJusante = '$observacaoJusante', edit = '$edit', foto1M = '$destination', foto2M = '$destination2', foto1J = '$destination3', foto2J = '$destination4', editM = '$editM', editJ = '$editJ' WHERE codAuto = '$codAuto'";
     $update = mysqli_query($link, $sql);
 
    if($update === TRUE){

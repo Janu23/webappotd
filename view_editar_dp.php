@@ -81,8 +81,10 @@
             <input type="hidden" name="codAuto" value="<?php echo $dados['codAuto'];?>">
             <input type="hidden" name="foto1Mdir" value="<?php echo $dados['foto1M'];?>">
             <input type="hidden" name="foto2Mdir" value="<?php echo $dados['foto2M'];?>">
-            <input type="hidden" name="foto1Mdir" value="<?php echo $dados['foto1J'];?>">
-            <input type="hidden" name="foto2Mdir" value="<?php echo $dados['foto2J'];?>">
+            <input type="hidden" name="foto1Jdir" value="<?php echo $dados['foto1J'];?>">
+            <input type="hidden" name="foto2Jdir" value="<?php echo $dados['foto2J'];?>">
+            <input type="hidden" name="editJ" value="<?php echo $dados['editJ'];?>">
+            <input type="hidden" name="editM" value="<?php echo $dados['editM'];?>">
             
             <div class="form-group row">
             <div class="col-md-11 control-label">
@@ -286,7 +288,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 control-label" for="observacaoMontante">Observação estado de conservação montante</label>  
                 <div class="col-sm-8">
-                     <textarea class="form-control" name="observacaoMontante" id="observacaoMontante" rows="3" maxlength="150" value="<?php echo $dados['observacaoMontante'];?>"></textarea>   
+                     <textarea class="form-control" name="observacaoMontante" id="observacaoMontante" rows="3" maxlength="150"><?php echo $dados['observacaoMontante'];?></textarea>   
                 </div>
             </div>
             <hr>

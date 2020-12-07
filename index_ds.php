@@ -79,7 +79,7 @@
                             while($dados = mysqli_fetch_array($resultado)):
                     ?>
                     <tr>
-                        <td><?php echo ($dados['edit']==1) ? 'OK <span class="glyphicon glyphicon-ok text-success"></span>': ''; ?></td>
+                        <td><?php echo ($dados['edit']==1) ? '<span><img src="img/ok.png" width="20px"/></span>': ''; ?></td>
                         <td><?php echo $dados['identificacao2020_2']; ?></td>
                         <td><?php echo $dados['km']; ?></td>
                         <td><?php echo $dados['kmFinal']; ?></td>
