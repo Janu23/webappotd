@@ -16,73 +16,66 @@
     <nav class="navbar bg-dark navbar-dark">
     <span class="navbar-brand mb-0 h1">Sistema Simplificado de Monitoração</span>
     </nav>
-    <div class="form-group row">
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Planilha Drenagem Superficial</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário visualize a planilha de drenagem superficial completa e edite as fichas contidas nela.</p>
-                <a href="trecho.php" class="btn btn-light btn-block">Acessar</a>
-            </div>
-            </div>
+    <div class="row">
+	    <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Planilha Drenagem Superficial</b></h5>
+                <p class="card-text">Permite que o usuário acesse e visualize a tabela com todas as fichas de drenagem superficial e edite-as.</p>
+                <a href="trecho_ds.php" class="btn btn-primary btn-lg btn-block mb">Acessar</a>
+              </div>
+            </div><br>
         </div>
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Exportar Planilha Drenagem Superficial</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo fichas editadas e não editadas definindo os trechos como critério de filtragem.</p>
-                <a href="trecho_exp_planilha_ds.php" class="btn btn-light btn-block">Exportar</a>
-            </div>
-            </div>
+        <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Exportar Planilha Drenagem Superficial</b></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls. Todas as fichas serão adicionadas ao arquivo.</p>
+                <a href="trecho_exp_planilha_ds.php" class="btn btn-primary btn-lg btn-block mb">Exportar</a>
+              </div>
+            </div><br>
         </div>
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Exportar Planilha Drenagem Superfical Editada</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls contendo apenas fichas editadas.</p>
-                <a href="exportar_planilha_ds_edit.php" class="btn btn-light btn-block">Exportar</a>
-            </div>
-            </div>
+        <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Exportar Planilha Drenagem Superficial Editada</b></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls. Apenas as fichas editadas serão adicionadas ao arquivo.</p>
+                <a href="exportar_planilha_ds_edit.php" class="btn btn-primary btn-lg btn-block mb">Exportar</a>
+              </div>
+            </div><br>
         </div>
-
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Planilha Drenagem Profunda</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário visualize a planilha de drenagem profunda completa e edite as fichas contidas nela.</p>
-                <a href="trecho_dp.php" class="btn btn-light btn-block">Acessar</a>
-            </div>
-            </div>
+        <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Planilha Drenagem Profunda</b></h5>
+                <p class="card-text">Permite que o usuário acesse e visualize a tabela com todas as fichas de drenagem profunda e edite-as.</p>
+                <a href="trecho_dp.php" class="btn btn-primary btn-lg btn-block mb">Acessar</a>
+              </div>
+            </div><br>
         </div>
-
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Exportar Planilha Drenagem Profunda</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls contendo fichas editadas e não editadas definindo os trechos como critério de filtragem.</p>
-                <a href="trecho_exp_planilha_dp.php" class="btn btn-light btn-block">Exportar</a>
-            </div>
-            </div>
+        <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Exportar Planilha Drenagem Profunda</b></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls. Todas as fichas serão adicionadas ao arquivo.</p>
+                <a href="trecho_exp_planilha_dp.php" class="btn btn-primary btn-lg btn-block mb">Exportar</a>
+              </div>
+            </div><br>
         </div>
-
-        <div class="col-sm-4">
-            <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-            <div class="card-header">Exportar Planilha Drenagem Profunda Editada</div>
-            <div class="card-body">
-                <h5 class="card-title"></h5>
-                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls contendo apenas fichas editadas.</p>
-                <a href="exportar_planilha_dp_edit.php" class="btn btn-light btn-block">Exportar</a>
-            </div>
-            </div>
+        <div class="col-md-4">
+    		<div class="card mb">
+              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
+              <div class="card-body mb">
+                <h5 class="card-title"><b>Exportar Planilha Drenagem Profunda Editada</b></h5>
+                <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls. Apenas as fichas editadas serão adicionadas ao arquivo.</p>
+                <a href="exportar_planilha_dp_edit.php" class="btn btn-primary btn-lg btn-block mb">Exportar</a>
+              </div>
+            </div><br><br>
         </div>
     </div>
 </div>
