@@ -36,6 +36,15 @@
     $editM = $_POST['editM'];
     $editJ = $_POST['editJ'];
 
+    //Caso o dispositivo só tenha uma posicao(montante ou jusante) não deixa a ficha em aberto
+    if ($_POST['kmInicial']=='-'){
+        $editM = 1;
+    }
+
+    if ($_POST['kmFinal']=='-'){
+        $editJ = 1;
+    }
+
     $identificacao = $_POST['identificacao'];
 
     $destination= $_POST['foto1Mdir'];

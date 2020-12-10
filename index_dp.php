@@ -16,9 +16,13 @@
 
     //consulta para métricas de desempenho do operador - num dispositivos por dia
     $data = date("d/m/Y");
-    $consulta = "SELECT codAuto, data FROM drenagem_profunda WHERE edit = 1 AND data = '$data'";
+    $consulta = "SELECT codAuto, data FROM drenagem_profunda WHERE edit = 1 AND editM =1 AND editJ = 1 AND data = '$data'";
     $retorno = mysqli_query($link, $consulta);
-    $linhas = mysqli_num_rows($retorno);//dispositivos inspecionados
+    $linhas = mysqli_num_rows($retorno);//fichas completas
+
+    $consulta2 = "SELECT codAuto, data FROM drenagem_profunda WHERE edit = 1 AND data = '$data' AND (editM =0 OR editJ = 0)";
+    $retorno2 = mysqli_query($link, $consulta2);
+    $linhas2 = mysqli_num_rows($retorno2);//fichas incompletas
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +51,12 @@
         <div id="container-tabela">
         <div class="alert alert-primary col-sm-2" id="msg-desempenho" role="alert">
          <?php echo "Acumulado do dia: ".$linhas; ?>
-    </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="alert alert-warning col-sm-2" id="msg-desempenho" role="alert">
+         <?php echo "Fichas em aberto: ".$linhas2; ?>
+        </div>
             <table class="table table-responsive hover" id="tabela_ds">
                 <thead class="thead-dark">
                     <tr>
@@ -65,12 +74,12 @@
                 <tbody>
                     <?php 
                         if ($_SESSION['inicioTrecho']=="" && $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT * FROM drenagem_profunda";
+                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda";
                         }else if($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT * FROM drenagem_profunda WHERE kmInicial LIKE '".$_SESSION['inicioTrecho']."%' OR kmFinal LIKE '".$_SESSION['finalTrecho']."%'";
+                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE kmInicial LIKE '".$_SESSION['inicioTrecho']."%' OR kmFinal LIKE '".$_SESSION['finalTrecho']."%'";
 
                         }else {
-                            $sql = "SELECT * FROM drenagem_profunda WHERE CAST(kmInicial AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(kmFinal AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
+                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE CAST(kmInicial AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(kmFinal AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
                         }
                         $resultado = mysqli_query($link, $sql);
                     

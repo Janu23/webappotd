@@ -65,12 +65,12 @@
                 <tbody>
                     <?php 
                         if ($_SESSION['inicioTrecho']=="" && $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT * FROM drenagem_superficial";
+                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial";
                         }else if($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT * FROM drenagem_superficial WHERE km LIKE '".$_SESSION['inicioTrecho']."%' OR km LIKE '".$_SESSION['finalTrecho']."%'";
+                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE km LIKE '".$_SESSION['inicioTrecho']."%' OR km LIKE '".$_SESSION['finalTrecho']."%'";
 
                         }else {
-                            $sql = "SELECT * FROM drenagem_superficial WHERE CAST(km AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(km AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
+                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(km AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(km AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
                         }
                         $resultado = mysqli_query($link, $sql);
                     
