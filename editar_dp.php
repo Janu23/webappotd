@@ -13,8 +13,8 @@
     $caixaDanificadaM = (isset($_POST['caixaDanificadaM'])) ? "Sim" : "Não";
     $erosaoM = (isset($_POST['erosaoM'])) ? "Sim" : "Não";
     $tubulacaoDanificadaM = (isset($_POST['tubulacaoDanificadaM'])) ? "Sim" : "Não";
-    $fissuraTrincaM = (isset($_POST['fissuraTrincaM'])) ? "Sim" : "Não";
-    $tampaDanificadaInexM = (isset($_POST['tampaDanificadaInexM'])) ? "Sim" : "Não";
+    $fissuraTrincaM = $_POST['fissuraTrincaM'];
+    $tampaDanificadaInexM = $_POST['tampaDanificadaInexM'];
     $okM = (isset($_POST['okM'])) ? "Sim" : "Não";
 
     //checkbox diagnóstico jusante
@@ -25,8 +25,8 @@
     $caixaDanificadaJ = (isset($_POST['caixaDanificadaJ'])) ? "Sim" : "Não";
     $erosaoJ = (isset($_POST['erosaoJ'])) ? "Sim" : "Não";
     $tubulacaoDanificadaJ = (isset($_POST['tubulacaoDanificadaJ'])) ? "Sim" : "Não";
-    $fissuraTrincaJ = (isset($_POST['fissuraTrincaJ'])) ? "Sim" : "Não";
-    $tampaDanificadaInexJ = (isset($_POST['tampaDanificadaInexJ'])) ? "Sim" : "Não";
+    $fissuraTrincaJ = $_POST['fissuraTrincaJ'];
+    $tampaDanificadaInexJ = $_POST['tampaDanificadaInexJ'];
     $okJ = (isset($_POST['okJ'])) ? "Sim" : "Não";
 
     $observacaoMontante= mysqli_real_escape_string($link,$_POST['observacaoMontante']);

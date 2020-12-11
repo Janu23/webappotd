@@ -24,7 +24,7 @@ if ($_SESSION['inicioTrecho']>$_SESSION['finalTrecho']){
    
     //Define o nome do arquivo a ser exportado
     
-    $arquivo = "drenagem_profunda.xls";
+    $arquivo = "drenagem_profunda_".date("d/m/Y").".xls";
     $html = ' ';
     $html .= '<table border="1">';
     $html .='<tr>';

@@ -70,7 +70,15 @@ function clicadoDP(id, tipo){
     if (status && tipo=="montante") {
       document.getElementById('okM').checked = false;  
     }
-  }
+}
+
+/*Função para permitir que apenas umas das opções de trinca/fissura e tampa sejam marcadas(função generica)*/
+function check(id,id_desmarcar){
+  var status = document.getElementById(id).checked;    
+      if (status){
+        document.getElementById(id_desmarcar).checked = false; 
+      }
+}
 
 /*função para garantir mútua exclusividade entre o Ok e ou outros atributos - Ok marcado -> desmarca os outros */
 function okClicadoDP(tipoOK){
@@ -84,9 +92,11 @@ function okClicadoDP(tipoOK){
       document.getElementById('testaAlaDanificadaM').checked = false;   
       document.getElementById('caixaDanificadaM').checked = false;   
       document.getElementById('erosaoM').checked = false;   
-      document.getElementById('tubulacaoDanificadaM').checked = false;   
-      document.getElementById('fissuraTrincaM').checked = false;   
-      document.getElementById('tampaDanificadaInexM').checked = false;    
+      document.getElementById('tubulacaoDanificadaM').checked = false;  
+      document.getElementById('fissuraTrincaCDM').checked = false;   
+      document.getElementById('fissuraTrincaM').checked = false;  
+      document.getElementById('tampaDanificadaM').checked = false;
+      document.getElementById('tampaInexM').checked = false; 
     }
     if(tipoOK == 'okJ'){
       document.getElementById('assoreadoJ').checked = false;  
@@ -96,9 +106,58 @@ function okClicadoDP(tipoOK){
       document.getElementById('caixaDanificadaJ').checked = false;   
       document.getElementById('erosaoJ').checked = false;   
       document.getElementById('tubulacaoDanificadaJ').checked = false;   
-      document.getElementById('fissuraTrincaJ').checked = false;   
-      document.getElementById('tampaDanificadaInexJ').checked = false;    
+      document.getElementById('fissuraTrincaCDJ').checked = false;   
+      document.getElementById('fissuraTrincaJ').checked = false;  
+      document.getElementById('tampaDanificadaJ').checked = false;
+      document.getElementById('tampaInexJ').checked = false;   
     }
   }
 }  
   
+
+function verificaCheckboxMontante(){
+  var cm1 = document.getElementById('assoreadoM').checked = false;  
+  var cm2 = document.getElementById('afogadoM').checked = false;   
+  var cm3 = document.getElementById('limpezaM').checked = false;   
+  var cm4 = document.getElementById('testaAlaDanificadaM').checked = false;   
+  var cm5 = document.getElementById('caixaDanificadaM').checked = false;   
+  var cm6 = document.getElementById('erosaoM').checked = false;   
+  var cm7 = document.getElementById('tubulacaoDanificadaM').checked = false;  
+  var cm8 = document.getElementById('fissuraTrincaCDM').checked = false;   
+  var cm9 = document.getElementById('fissuraTrincaM').checked = false;  
+  var cm10 = document.getElementById('tampaDanificadaM').checked = false;
+  var cm11 = document.getElementById('tampaInexM').checked = false; 
+
+  if (cm1 || cm2 || cm3 || cm4 || cm5 || cm6 || cm7 || cm8 || cm9 || cm10 || cm11){
+    return true;
+  }else {
+    alert("É necessário que ao menos um dos checkboxes seja marcado!");
+    return false;
+  }
+}
+
+function verificaCheckboxJusante(){
+  var cm1 = document.getElementById('assoreadoJ').checked = false;  
+  var cm2 = document.getElementById('afogadoJ').checked = false;   
+  var cm3 = document.getElementById('limpezaJ').checked = false;   
+  var cm4 = document.getElementById('testaAlaDanificadaJ').checked = false;   
+  var cm5 = document.getElementById('caixaDanificadaJ').checked = false;   
+  var cm6 = document.getElementById('erosaoJ').checked = false;   
+  var cm7 = document.getElementById('tubulacaoDanificadaJ').checked = false;  
+  var cm8 = document.getElementById('fissuraTrincaCDJ').checked = false;   
+  var cm9 = document.getElementById('fissuraTrincaJ').checked = false;  
+  var cm10 = document.getElementById('tampaDanificadaJ').checked = false;
+  var cm11 = document.getElementById('tampaInexM').checked = false; 
+
+  if (cm1 || cm2 || cm3 || cm4 || cm5 || cm6 || cm7 || cm8 || cm9 || cm10 || cm11){
+    return true;
+  }else {
+    alert("É necessário que ao menos um dos checkboxes seja marcado!");
+    return false;
+  }
+}
+
+function verificaCheckbox(){
+  verificaCheckboxMontante();
+  verificaCheckboxJusante();
+}

@@ -12,7 +12,7 @@ include('dbconnect.php');
    
     //Define o nome do arquivo a ser exportado
     
-    $arquivo = "drenagem_profunda_editada.xls";
+    $arquivo = "drenagem_profunda_editada_".date("d/m/Y").".xls";
     $html = ' ';
     $html .= '<table border="1">';
     $html .='<tr>';

@@ -54,12 +54,12 @@
             ?>
        </div>
         <div class="form-group row">
-            <div class="col-sm-4 control-label">      
+            <div class="col-sm-3 control-label">      
             <?php
                     if(isset($_SESSION['editado']) && $_SESSION['editado']):
             ?>
             <div class="alert alert-success" role="alert">
-                <span class="glyphicon glyphicon-ok">&nbsp; </span> Ficha Editada!
+            &nbsp; Ficha Editada! &nbsp; <span><img src="img/ok.png" width="20px"/></span> 
             </div>
             <?php
                     endif;
@@ -68,7 +68,7 @@
                     if(isset($_SESSION['editado']) && $_SESSION['editado']==false):
             ?>
             <div class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-remove"> &nbsp;</span> Erro na edição!
+            &nbsp; Erro na edição! &nbsp; <span><img src="img/error.png" width="20px"/></span>
             </div>
             <?php
                     endif;
@@ -240,18 +240,31 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 control-label" for="prependedtext"></label>    
-                <div class="col-sm-2">
-                        <input type="checkbox" autocomplete="off" name="fissuraTrincaM" id="fissuraTrincaM" value="on" <?php  echo ($dados['fissuraTrincaM'] == "Sim") ? 'checked' : null;?> onclick="clicadoDP('fissuraTrincaM','montante');">
-                        </label>
-                        <label for="fissuraTrincaM">Fissura/Trinca</label>  
-                    </div>  
+                <label class="col-sm-2 control-label" for="prependedtext"></label>      
 
-                    <div class="col-sm-4">
-                        <input type="checkbox" autocomplete="off" name="tampaDanificadaInexM" id="tampaDanificadaInexM" value="on" <?php  echo ($dados['tampaDanificadaInexM'] == "Sim") ? 'checked' : null;?> onclick="clicadoDP('tampaDanificadaInexM','montante');">
-                        </label>
-                        <label for="tampaDanificadaInexM">Tampa Danificada/Inexist.</label>  
-                    </div>  
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="tampaDanificadaInexM" id="tampaDanificadaM" value="D" <?php  echo ($dados['tampaDanificadaInexM'] == "D") ? 'checked' : null;?> onclick="clicadoDP('tampaDanificadaM','montante');check('tampaDanificadaM','tampaInexM');">
+                    </label>
+                    <label for="tampaDanificadaM">Tampa Danificada</label>  
+                </div>  
+
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="tampaDanificadaInexM" id="tampaInexM" value="I" <?php  echo ($dados['tampaDanificadaInexM'] == "I") ? 'checked' : null;?> onclick="clicadoDP('tampaInexM','montante');check('tampaInexM','tampaDanificadaM');">
+                    </label>
+                    <label for="tampaInexM">Tampa Inexistente</label>  
+                </div> 
+
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="fissuraTrincaM" id="fissuraTrincaM" value="NCD" <?php  echo ($dados['fissuraTrincaM'] == "NCD") ? 'checked' : '';?> onclick="clicadoDP('fissuraTrincaM','montante');check('fissuraTrincaM','fissuraTrincaCDM');">
+                    </label>
+                    <label for="fissuraTrincaM">Fissura/Trinca</label>  
+                </div>  
+
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="fissuraTrincaM" id="fissuraTrincaCDM" value="CD" <?php  echo ($dados['fissuraTrincaM'] == "CD") ? 'checked' : '';?> onclick="clicadoDP('fissuraTrincaCDM','montante');check('fissuraTrincaCDM','fissuraTrincaM');">
+                    </label>
+                    <label for="fissuraTrincaCDM">Fissura/Trinca(Compromete Dispositivo)</label>  
+                </div> 
             </div>
             
             <br>
@@ -350,17 +363,30 @@
 
             <div class="form-group row">
                 <label class="col-sm-2 control-label" for="prependedtext"></label>    
+                
                 <div class="col-sm-2">
-                        <input type="checkbox" autocomplete="off" name="fissuraTrincaJ" id="fissuraTrincaJ" value="on" <?php  echo ($dados['fissuraTrincaJ'] == "Sim") ? 'checked' : null;?> onclick="clicadoDP('fissuraTrincaJ','jusante');">
-                        </label>
-                        <label for="fissuraTrincaJ">Fissura/Trinca</label>  
-                    </div>  
+                    <input type="checkbox" autocomplete="off" name="tampaDanificadaInexJ" id="tampaDanificadaJ" value="D" <?php  echo ($dados['tampaDanificadaInexJ'] == "D") ? 'checked' : null;?> onclick="clicadoDP('tampaDanificadaJ','jusante');check('tampaDanificadaJ','tampaInexJ');">
+                    </label>
+                    <label for="tampaDanificadaJ">Tampa Danificada</label>  
+                </div>  
 
-                    <div class="col-sm-4">
-                        <input type="checkbox" autocomplete="off" name="tampaDanificadaInexJ" id="tampaDanificadaInexJ" value="on" <?php  echo ($dados['tampaDanificadaInexJ'] == "Sim") ? 'checked' : null;?> onclick="clicadoDP('tampaDanificadaInexJ','jusante');">
-                        </label>
-                        <label for="tampaDanificadaInexJ">Tampa Danificada/Inexist.</label>  
-                    </div>  
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="tampaDanificadaInexJ" id="tampaInexJ" value="I" <?php  echo ($dados['tampaDanificadaInexJ'] == "I") ? 'checked' : null;?> onclick="clicadoDP('tampaInexJ','jusante');check('tampaInexJ','tampaDanificadaJ');">
+                    </label>
+                    <label for="tampaInexJ">Tampa Inexistente</label>  
+                </div> 
+
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="fissuraTrincaJ" id="fissuraTrincaJ" value="NCD" <?php  echo ($dados['fissuraTrincaJ'] == "NCD") ? 'checked' : '';?> onclick="clicadoDP('fissuraTrincaJ','jusante');check('fissuraTrincaJ','fissuraTrincaCDJ');">
+                    </label>
+                    <label for="fissuraTrincaJ">Fissura/Trinca</label>  
+                </div>  
+
+                <div class="col-sm-2">
+                    <input type="checkbox" autocomplete="off" name="fissuraTrincaJ" id="fissuraTrincaCDJ" value="CD" <?php  echo ($dados['fissuraTrincaJ'] == "CD") ? 'checked' : '';?> onclick="clicadoDP('fissuraTrincaCDJ','jusante');check('fissuraTrincaCDJ','fissuraTrincaJ');">
+                    </label>
+                    <label for="fissuraTrincaCDJ">Fissura/Trinca(Compromete Dispositivo)</label>  
+                </div> 
             </div>
 
             <br>

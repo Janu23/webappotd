@@ -40,7 +40,7 @@
     <nav aria-label="breadcrumb bg-white">
     <ol class="breadcrumb bg-white">
          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-         <li class="breadcrumb-item"><a href="trecho.php">Definir trecho - Planilha Drenagem Superficial</a></li>
+         <li class="breadcrumb-item"><a href="trecho_ds.php">Definir trecho - Planilha Drenagem Superficial</a></li>
         <li class="breadcrumb-item active" aria-current="page">Planilha Drenagem Superficial</li>
     </ol>
     </nav>
@@ -65,12 +65,17 @@
                 <tbody>
                     <?php 
                         if ($_SESSION['inicioTrecho']=="" && $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial";
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial";
                         }else if($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE km LIKE '".$_SESSION['inicioTrecho']."%' OR km LIKE '".$_SESSION['finalTrecho']."%'";
+                            if ($_SESSION['inicioTrecho']!=""){
+                                $trecho = $_SESSION['inicioTrecho'];
+                            } else{
+                                $trecho = $_SESSION['finalTrecho'];
+                            }
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2))= ".$trecho;
 
                         }else {
-                            $sql = "SELECT edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(km AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(km AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(substring(identificacao2020_2,11,3) <=".$_SESSION['finalTrecho'];
                         }
                         $resultado = mysqli_query($link, $sql);
                     

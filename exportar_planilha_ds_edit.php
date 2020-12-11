@@ -11,7 +11,7 @@ ob_start();
     include('dbconnect.php');
 
     //Define o nome do arquivo a ser exportado
-    $arquivo = "drenagem_superficial_editada.xls";
+    $arquivo = "drenagem_superficial_editada_".date("d/m/Y").".xls";
 
     $html = ' ';
     $html .= '<table border="1">';

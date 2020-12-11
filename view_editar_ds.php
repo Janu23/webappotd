@@ -54,12 +54,12 @@
             ?>
        </div>
         <div class="form-group row">
-            <div class="col-sm-4 control-label">      
+            <div class="col-sm-3 control-label">      
             <?php
                     if(isset($_SESSION['editado']) && $_SESSION['editado']):
             ?>
             <div class="alert alert-success" role="alert">
-                <span class="glyphicon glyphicon-ok">&nbsp; </span> Ficha Editada!
+            &nbsp; Ficha Editada! &nbsp; <span><img src="img/ok.png" width="20px"/></span>
             </div>
             <?php
                     endif;
@@ -68,7 +68,7 @@
                     if(isset($_SESSION['editado']) && $_SESSION['editado']==false):
             ?>
             <div class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-remove"> &nbsp;</span> Erro na edição!
+            &nbsp; Erro na edição! &nbsp; <span><img src="img/error.png" width="20px"/></span>
             </div>
             <?php
                     endif;

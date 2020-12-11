@@ -19,7 +19,6 @@
     <div class="row">
 	    <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Planilha Drenagem Superficial</b></h5>
                 <p class="card-text">Permite que o usuário acesse e visualize a tabela com todas as fichas de drenagem superficial e edite-as.</p>
@@ -29,7 +28,6 @@
         </div>
         <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Exportar Planilha Drenagem Superficial</b></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls. Todas as fichas serão adicionadas ao arquivo.</p>
@@ -39,7 +37,6 @@
         </div>
         <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Exportar Planilha Drenagem Superficial Editada</b></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem superficial em formato xls. Apenas as fichas editadas serão adicionadas ao arquivo.</p>
@@ -49,7 +46,6 @@
         </div>
         <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Planilha Drenagem Profunda</b></h5>
                 <p class="card-text">Permite que o usuário acesse e visualize a tabela com todas as fichas de drenagem profunda e edite-as.</p>
@@ -59,7 +55,6 @@
         </div>
         <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Exportar Planilha Drenagem Profunda</b></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls. Todas as fichas serão adicionadas ao arquivo.</p>
@@ -69,7 +64,6 @@
         </div>
         <div class="col-md-4">
     		<div class="card mb">
-              <img class="card-img-top" src="http://www.placehold.it/286x180" alt="Card image cap">
               <div class="card-body mb">
                 <h5 class="card-title"><b>Exportar Planilha Drenagem Profunda Editada</b></h5>
                 <p class="card-text">Permite que o usuário exporte a planilha de drenagem profunda em formato xls. Apenas as fichas editadas serão adicionadas ao arquivo.</p>

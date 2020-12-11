@@ -74,12 +74,17 @@
                 <tbody>
                     <?php 
                         if ($_SESSION['inicioTrecho']=="" && $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda";
-                        }else if($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE kmInicial LIKE '".$_SESSION['inicioTrecho']."%' OR kmFinal LIKE '".$_SESSION['finalTrecho']."%'";
+                            $sql = "SELECT codAuto, identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda";
+                        }else if ($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
+                            if ($_SESSION['inicioTrecho']!=""){
+                                $trecho = $_SESSION['inicioTrecho'];
+                            } else{
+                                $trecho = $_SESSION['finalTrecho'];
+                            }
+                            $sql = "SELECT codAuto, identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE CAST(substring(identificacao,11,3) AS DECIMAL(10,2)) = ".$trecho;
 
                         }else {
-                            $sql = "SELECT identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE CAST(kmInicial AS decimal(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(kmFinal AS decimal(10,2)) <=".$_SESSION['finalTrecho'];
+                            $sql = "SELECT codAuto, identificacao, kmInicial, kmFinal, latitudeM, longitudeM, latitudeJ, longitudeJ, edit, editM, editJ FROM drenagem_profunda WHERE CAST(substring(identificacao,11,3) AS DECIMAL(10,2))>=".$_SESSION['inicioTrecho']." AND CAST(substring(identificacao,11,3) AS DECIMAL(10,2)) <=".$_SESSION['finalTrecho'];
                         }
                         $resultado = mysqli_query($link, $sql);
                     
