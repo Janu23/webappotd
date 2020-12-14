@@ -135,10 +135,18 @@ if ($_SESSION['inicioTrecho']>$_SESSION['finalTrecho']){
             $html .='<td>'.$ficha["fissuraTrincaJ"].'</td>';
             $html .='<td>'.$ficha["tampaDanificadaInexJ"].'</td>';
             $html .='<td>'.$ficha["data"].'</td>';
-            $html .='<td>'.$ficha["foto1M"].'</td>';
-            $html .='<td>'.$ficha["foto2M"].'</td>';
-            $html .='<td>'.$ficha["foto1J"].'</td>';
-            $html .='<td>'.$ficha["foto2J"].'</td>';
+
+            //Retira o caminho das fotos - Deixa só o nome
+            $foto1M = explode("/",$ficha["foto1M"]);
+            $foto2M = explode("/",$ficha["foto2M"]);
+            $foto1J = explode("/",$ficha["foto1J"]);
+            $foto2J = explode("/",$ficha["foto2J"]);
+
+            $html .='<td>'.$foto1M[3].'</td>';
+            $html .='<td>'.$foto2M[3].'</td>';
+            $html .='<td>'.$foto1J[3].'</td>';
+            $html .='<td>'.$foto2J[3].'</td>';
+
             $html .='<td>'.$ficha["observacaoMontante"].'</td>';
             $html .='<td>'.$ficha["observacaoJusante"].'</td>';
             $html .='<td>'.$ficha["edit"].'</td>';

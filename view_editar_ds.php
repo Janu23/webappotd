@@ -243,29 +243,41 @@
                 </div>
             </div><br>
             <div class="form-group row">
-                <label class="col-sm-2 control-label" for="foto1_ficha">Foto 1<h11>*</h11></label>  
+                <label class="col-sm-2 control-label" for="foto1_ficha">Foto 1</label>  
                 <div class="col-sm-2">
-                      <input id="foto1_ficha" name="foto1_ficha" type="file" accept="image/*" required>  
+                      <input id="foto1_ficha" name="foto1_ficha" type="file" accept="image/*">  
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-2 control-label" for="foto2_ficha">Foto 2<h11>*</h11></label>  
+                <label class="col-sm-2 control-label" for="foto2_ficha">Foto 2</label>  
                 <div class="col-sm-2">
-                     <input id="foto2_ficha" name="foto2_ficha" type="file" accept="image/*" required>  
+                     <input id="foto2_ficha" name="foto2_ficha" type="file" accept="image/*">  
                 </div>
             </div>
             <?php 
-                if($dados['foto1_fichas_nova']!=null && $dados['foto2_fichas_nova']!=null):
+                if($dados['foto1_fichas_nova']!=null || $dados['foto2_fichas_nova']!=null):
             ?>
             <div class="form-group row">
                 <label class="col-sm-2 control-label" for="foto1_ficha">Foto Adicionadas</label>  
-                <div class="col-sm-2">
-                <img src="<?php echo $dados['foto1_fichas_nova'];?>" alt="Minha Figura" width="100%">	        
+                <div class="col-sm-3">1.
+                <?php 
+                if(file_exists($dados['foto1_fichas_nova'])):
+                ?>
+                <img src="<?php echo $dados['foto1_fichas_nova'];?>" alt="Minha Figura" width="100%">
+                <?php
+                 endif;
+                ?>      
                 </div>
                 <div class="col-sm-1"></div>
-                <div class="col-sm-2">
-                <img src="<?php echo $dados['foto2_fichas_nova'];?>" alt="Minha Figura" width="100%">	     
+                <div class="col-sm-3">2.
+                <?php 
+                if(file_exists($dados['foto2_fichas_nova'])):
+                ?>
+                <img src="<?php echo $dados['foto2_fichas_nova'];?>" alt="Minha Figura" width="100%">	   
+                <?php
+                 endif;
+                ?>   
                 </div>
             </div>
             <?php

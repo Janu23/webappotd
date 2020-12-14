@@ -16,9 +16,14 @@
 
     //consulta para métricas de desempenho do operador - num dispositivos por dia
     $data = date("d/m/Y");
-    $consulta = "SELECT codAuto, data FROM drenagem_superficial WHERE edit = 1 AND data = '$data'";
+    $consulta = "SELECT codAuto, data FROM drenagem_superficial WHERE edit = 1 AND foto1_fichas_nova <> '' AND foto2_fichas_nova <> '' AND data = '$data'";
     $retorno = mysqli_query($link, $consulta);
     $linhas = mysqli_num_rows($retorno);//dispositivos inspecionados
+
+    //consulta para métricas de desempenho do operador - num dispositivos por dia (usei XOR)
+    $consulta2 = "SELECT codAuto, data FROM drenagem_superficial WHERE ((foto1_fichas_nova <> '' AND (NOT foto2_fichas_nova <> '')) OR ((NOT foto1_fichas_nova <> '') AND foto2_fichas_nova <> '')) AND edit = 1 AND data = '$data'";
+    $retorno2 = mysqli_query($link, $consulta2);
+    $linhas2 = mysqli_num_rows($retorno2);//dispositivos inspecionados
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +52,12 @@
         <div id="container-tabela">
         <div class="alert alert-primary col-sm-2" id="msg-desempenho" role="alert">
          <?php echo "Acumulado do dia: ".$linhas; ?>
-    </div>
+        </div>
+        <div class="col-sm-1"></div>
+
+        <div class="alert alert-warning col-sm-2" id="msg-desempenho" role="alert">
+        <?php echo "Fichas em aberto: ".$linhas2; ?>
+        </div>
             <table class="table table-responsive hover" id="tabela_ds">
                 <thead class="thead-dark">
                     <tr>
@@ -65,17 +75,17 @@
                 <tbody>
                     <?php 
                         if ($_SESSION['inicioTrecho']=="" && $_SESSION['finalTrecho']==""){
-                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial";
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2, foto1_fichas_nova, foto2_fichas_nova FROM drenagem_superficial ORDER BY edit DESC";
                         }else if($_SESSION['inicioTrecho']=="" || $_SESSION['finalTrecho']==""){
                             if ($_SESSION['inicioTrecho']!=""){
                                 $trecho = $_SESSION['inicioTrecho'];
                             } else{
                                 $trecho = $_SESSION['finalTrecho'];
                             }
-                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2))= ".$trecho;
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2, foto1_fichas_nova, foto2_fichas_nova FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2))= ".$trecho;
 
                         }else {
-                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2 FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(substring(identificacao2020_2,11,3) <=".$_SESSION['finalTrecho'];
+                            $sql = "SELECT codAuto, edit, identificacao2020_2, km, kmFinal, latitude1, longitude1, latitude2, longitude2, foto1_fichas_nova, foto2_fichas_nova FROM drenagem_superficial WHERE CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2)) >=".$_SESSION['inicioTrecho']." AND CAST(substring(identificacao2020_2,11,3) AS DECIMAL(10,2)) <=".$_SESSION['finalTrecho'];
                         }
                         $resultado = mysqli_query($link, $sql);
                     
@@ -84,7 +94,17 @@
                             while($dados = mysqli_fetch_array($resultado)):
                     ?>
                     <tr>
-                        <td><?php echo ($dados['edit']==1) ? '<span><img src="img/ok.png" width="20px"/></span>': ''; ?></td>
+                    <?php
+                            //Condição descrita no arquivo editar_ds
+                            if ($dados['edit']>0 && $dados['foto1_fichas_nova']!="" && $dados['foto2_fichas_nova']!=""){
+                                $ok = '<span><img src="img/ok.png" width="20px"/></span>';
+                            }else if ($dados['edit']==0){
+                                $ok = '';
+                            }else {
+                                $ok = '<span><img src="img/exc.png" width="20px"/></span>';
+                            }
+                        ?>
+                        <td><?php echo $ok; ?></td>
                         <td><?php echo $dados['identificacao2020_2']; ?></td>
                         <td><?php echo $dados['km']; ?></td>
                         <td><?php echo $dados['kmFinal']; ?></td>

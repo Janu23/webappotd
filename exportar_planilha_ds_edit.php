@@ -68,7 +68,6 @@ ob_start();
     $html .='<th>foto1_fichas_nova</th>';
     $html .='<th>foto2_fichas_nova</th>';
     $html .='<th>observacaoAlteracao</th>';
-    $html .='<th>sync</th>';
     $html .='<th>edit</th>';     
     $html .='</tr>';
 
@@ -126,10 +125,14 @@ ob_start();
             $html .='<td>'.$ficha["removido"].'</td>';
             $html .='<td>'.$ficha["lote"].'</td>';
             $html .='<td>'.$ficha["aguaDissipador"].'</td>';
-            $html .='<td>'.$ficha["foto1_fichas_nova"].'</td>';
-            $html .='<td>'.$ficha["foto2_fichas_nova"].'</td>';
+
+            //Retira o caminho das fotos - Deixa só o nome
+            $foto1 = explode("/",$ficha["foto1_fichas_nova"]);
+            $foto2 = explode("/",$ficha["foto2_fichas_nova"]);
+
+            $html .='<td>'.$foto1[3].'</td>';
+            $html .='<td>'.$foto2[3].'</td>';
             $html .='<td>'.$ficha["observacaoAlteracao"].'</td>';
-            $html .='<td>'.$ficha["sync"].'</td>';
             $html .='<td>'.$ficha["edit"].'</td>';
             $html .='</tr>';
         }
